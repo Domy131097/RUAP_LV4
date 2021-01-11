@@ -18,7 +18,7 @@ namespace SeleniumTests
         private bool acceptNextAlert = true;
         private static string name = "Testo";
         private static string lastName = "Testic";
-        private static string email = "testt.test111@gmail.com";
+        private static string email = "test.testtc111@gmail.com";
         private static string phone = "0991112233";
         private static string password = "lozinka123";
 
@@ -46,7 +46,7 @@ namespace SeleniumTests
         }
 
         [Test]
-        public void TheUntitledTestCaseTest()
+        public void RegisterTestCaseTest()
         {
             driver.Navigate().GoToUrl("https://demo.opencart.com/index.php?route=common/home");
             driver.FindElement(By.XPath("//a[contains(text(),'My Account')]")).Click();
@@ -73,6 +73,21 @@ namespace SeleniumTests
             driver.FindElement(By.XPath("//input[@value='Continue']")).Click();
             driver.FindElement(By.LinkText("Continue")).Click();
         }
+
+        [Test]
+        public void LoginTestCaseTest()
+        {
+            driver.Navigate().GoToUrl("https://demo.opencart.com/index.php?route=common/home");
+            driver.FindElement(By.XPath("//a[contains(text(),'My Account')]")).Click();
+            driver.FindElement(By.Id("input-email")).Click();
+            driver.FindElement(By.Id("input-email")).Clear();
+            driver.FindElement(By.Id("input-email")).SendKeys("testo.testic1111@gmail.com");
+            driver.FindElement(By.Id("input-password")).Click();
+            driver.FindElement(By.Id("input-password")).Clear();
+            driver.FindElement(By.Id("input-password")).SendKeys("testo12345");
+            driver.FindElement(By.XPath("//input[@value='Login']")).Click();
+        }
+
         private bool IsElementPresent(By by)
         {
             try
@@ -121,4 +136,5 @@ namespace SeleniumTests
             }
         }
     }
+
 }
